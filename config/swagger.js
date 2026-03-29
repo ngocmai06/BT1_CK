@@ -12,9 +12,24 @@ const options = {
       {
         url: "http://localhost:3000"
       }
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT"
+        }
+      }
+    },
+
+    security: [
+      {
+        bearerAuth: []
+      }
     ]
   },
-  apis: ["./routes/*.js"] 
+    apis: ["./routes/*.js"] 
 };
 
 const swaggerSpec = swaggerJSDoc(options);
