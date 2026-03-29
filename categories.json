@@ -1,0 +1,32 @@
+[
+  {
+    "_id": { "$oid": "65f100000000000000000001" },
+    "name": "Học tập",
+    "description": "Liên quan học",
+    "createdAt": { "$date": "2026-01-01T08:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "65f100000000000000000002" },
+    "name": "Công việc",
+    "description": "Công việc",
+    "createdAt": { "$date": "2026-01-01T08:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "65f100000000000000000003" },
+    "name": "Cá nhân",
+    "description": "Sinh hoạt cá nhân",
+    "createdAt": { "$date": "2026-01-01T08:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "65f100000000000000000004" },
+    "name": "Sức khỏe",
+    "description": "Thể dục",
+    "createdAt": { "$date": "2026-01-01T08:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "65f100000000000000000005" },
+    "name": "Tài chính",
+    "description": "Tiền bạc",
+    "createdAt": { "$date": "2026-01-01T08:00:00Z" }
+  }
+]
