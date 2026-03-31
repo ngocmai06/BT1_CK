@@ -1,5 +1,5 @@
 import express from "express";
-import { createTask, getTasks, updateTask, deleteTask } from "../controllers/taskController.js";
+import { createTask, getTasks, updateTask, deleteTask, getTasksByUser} from "../controllers/taskController.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();
@@ -107,5 +107,31 @@ router.put("/:id", verifyToken, updateTask);
  *         description: Task deleted successfully
  */
 router.delete("/:id", verifyToken, deleteTask);
+
+/**
+ * @swagger
+ * tags:
+ *   name: Task Queries
+ *   description: Các truy vấn
+ */
+
+// Lấy tất cả task của user A. 
+/**
+ * @swagger
+ * /api/tasks/user/{userId}:
+ *   get:
+ *     summary: Lấy tất cả task của user
+ *     tags: [Task Queries]
+ *     parameters:
+ *       - in: path
+ *         name: userId
+ *         required: true
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: Danh sách task
+ */
+router.get("/user/:userId", verifyToken, getTasksByUser);
 
 export default router;

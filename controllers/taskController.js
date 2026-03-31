@@ -41,3 +41,10 @@ export const deleteTask = async (req, res) => {
   await Task.findByIdAndDelete(req.params.id);
   res.json("Deleted");
 };
+
+// Lấy tất cả task của user A
+export const getTasksByUser = async (req, res) => {
+  const tasks = await Task.find({ userId: req.params.userId });
+  res.json(tasks);
+};
+
