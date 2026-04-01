@@ -180,7 +180,7 @@ router.get("/incomplete", verifyToken, getIncompleteTasks);
  * @swagger
  * /api/tasks/search:
  *   get:
- *     summary: -	Tìm các task chứa từ khóa “report”. 
+ *     summary: Tìm các task chứa từ khóa “report”. 
  *     tags: [Task Queries]
  *     parameters:
  *       - in: query
