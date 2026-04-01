@@ -13,6 +13,8 @@ export const getTasks = async (req, res) => {
 
   let query = {};
 
+  query.isDeleted = false;
+
   if (keyword) {
     query.title = { $regex: keyword, $options: "i" };
   }
@@ -38,8 +40,21 @@ export const updateTask = async (req, res) => {
 };
 
 export const deleteTask = async (req, res) => {
-  await Task.findByIdAndDelete(req.params.id);
-  res.json("Deleted");
+  const task = await Task.findByIdAndUpdate(
+    req.params.id,
+    { isDeleted: true },
+    { new: true }
+  );
+  res.json(task);
+};
+
+export const restoreTask = async (req, res) => {
+  const task = await Task.findByIdAndUpdate(
+    req.params.id,
+    { isDeleted: false },
+    { new: true }
+  );
+  res.json(task);
 };
 
 // Lấy tất cả task của user A

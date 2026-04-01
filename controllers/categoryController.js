@@ -5,7 +5,7 @@ export const createCategory = async (req, res) => {
 };
 
 export const getCategories = async (req, res) => {
-  res.json(await Category.find());
+  res.json(await Category.find({ isDeleted: false }));
 };
 
 export const updateCategory = async (req, res) => {
@@ -13,6 +13,10 @@ export const updateCategory = async (req, res) => {
 };
 
 export const deleteCategory = async (req, res) => {
-  await Category.findByIdAndDelete(req.params.id);
-  res.json("Deleted");
+  const category = await Category.findByIdAndUpdate(
+    req.params.id,
+    { isDeleted: true },
+    { new: true }
+  );
+  res.json(category);
 };

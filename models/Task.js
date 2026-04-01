@@ -15,7 +15,12 @@ const taskSchema = new mongoose.Schema({
   completedAt: Date,
 
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  categoryId: { type: mongoose.Schema.Types.ObjectId, ref: "Category" }
+  categoryId: { type: mongoose.Schema.Types.ObjectId, ref: "Category" },
+
+  isDeleted: {
+    type: Boolean,
+    default: false
+  }
 
 }, { timestamps: true });
 

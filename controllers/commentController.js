@@ -9,7 +9,7 @@ export const createComment = async (req, res) => {
 };
 
 export const getCommentsByTask = async (req, res) => {
-  const comments = await Comment.find({ taskId: req.params.taskId })
+  const comments = await Comment.find({ taskId: req.params.taskId, isDeleted: false })
     .populate("userId");
   res.json(comments);
 };
@@ -24,6 +24,10 @@ export const updateComment = async (req, res) => {
 };
 
 export const deleteComment = async (req, res) => {
-  await Comment.findByIdAndDelete(req.params.id);
-  res.json("Deleted");
+  const comment = await Comment.findByIdAndUpdate(
+    req.params.id,
+    { isDeleted: true },
+    { new: true }
+  );
+  res.json(comment);
 };
