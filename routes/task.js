@@ -14,7 +14,7 @@ import { createTask, getTasks, updateTask, deleteTask,
     tasksByMonth,
     lateCompletedTasks,
     avgCompletionTime
-} from "../controllers/taskController.js";
+} from "../controllers/task.js";
 import { verifyToken } from "../middleware/verifyToken.js";
 
 const router = express.Router();

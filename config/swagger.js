@@ -4,9 +4,9 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Task Management API",
+      title: "API BT1_CK",
       version: "1.0.0",
-      description: "API quản lý task (MVC + MongoDB)"
+      description: "API quản lý"
     },
     servers: [
       {

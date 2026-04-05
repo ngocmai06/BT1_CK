@@ -1,26 +1,26 @@
 import express from "express";
 import {
-  createCategory,
-  getCategories,
-  updateCategory,
-  deleteCategory
-} from "../controllers/categoryController.js";
+  createComment,
+  getCommentsByTask,
+  updateComment,
+  deleteComment
+} from "../controllers/comment.js";
 
 const router = express.Router();
 
 /**
  * @swagger
  * tags:
- *   name: Categories
- *   description: Quản lý danh mục
+ *   name: Comments
+ *   description: Quản lý bình luận
  */
 
 /**
  * @swagger
- * /api/categories:
+ * /api/comments:
  *   post:
- *     summary: Tạo category
- *     tags: [Categories]
+ *     summary: Tạo comment
+ *     tags: [Comments]
  *     requestBody:
  *       required: true
  *       content:
@@ -28,57 +28,58 @@ const router = express.Router();
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               content:
  *                 type: string
- *               description:
+ *               taskId:
  *                 type: string
  *     responses:
  *       200:
  *         description: Tạo thành công
  */
-router.post("/", createCategory);
+router.post("/", createComment);
 
 /**
  * @swagger
- * /api/categories:
+ * /api/comments/{taskId}:
  *   get:
- *     summary: Lấy tất cả category
- *     tags: [Categories]
+ *     summary: Lấy comment theo task
+ *     tags: [Comments]
+ *     parameters:
+ *       - in: path
+ *         name: taskId
+ *         required: true
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
- *         description: Danh sách category
+ *         description: Danh sách comment
  */
-router.get("/", getCategories);
+router.get("/:taskId", getCommentsByTask);
 
 /**
  * @swagger
- * /api/categories/{id}:
+ * /api/comments/{id}:
  *   put:
- *     summary: Cập nhật category
- *     tags: [Categories]
+ *     summary: Cập nhật comment
+ *     tags: [Comments]
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
  *         schema:
  *           type: string
- *     requestBody:
- *       content:
- *         application/json:
- *           schema:
- *             type: object
  *     responses:
  *       200:
  *         description: Cập nhật thành công
  */
-router.put("/:id", updateCategory);
+router.put("/:id", updateComment);
 
 /**
  * @swagger
- * /api/categories/{id}:
+ * /api/comments/{id}:
  *   delete:
- *     summary: Xóa category
- *     tags: [Categories]
+ *     summary: Xóa comment
+ *     tags: [Comments]
  *     parameters:
  *       - in: path
  *         name: id
@@ -89,6 +90,6 @@ router.put("/:id", updateCategory);
  *       200:
  *         description: Xóa thành công
  */
-router.delete("/:id", deleteCategory);
+router.delete("/:id", deleteComment);
 
 export default router;

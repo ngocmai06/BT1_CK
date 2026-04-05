@@ -1,11 +1,11 @@
 import express from "express";
 import mongoose from "mongoose";
 
-import authRoutes from "./routes/authRoutes.js";
-import taskRoutes from "./routes/taskRoutes.js";
-import categoryRoutes from "./routes/categoryRoutes.js";
-import commentRoutes from "./routes/commentRoutes.js";
-import userRoutes from "./routes/userRoutes.js";
+import authRoutes from "./routes/auth.js";
+import taskRoutes from "./routes/task.js";
+import categoryRoutes from "./routes/category.js";
+import commentRoutes from "./routes/comment.js";
+import userRoutes from "./routes/user.js";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./config/swagger.js";
 
