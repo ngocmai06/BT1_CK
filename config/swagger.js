@@ -10,8 +10,13 @@ const options = {
     },
     servers: [
       {
-        url: "http://localhost:3000"
-      }
+        url: 'https://bt1-ck.onrender.com', 
+        description: 'Production Server',
+      },
+      {
+        url: 'http://localhost:3000',
+        description: 'Local Development',
+      },
     ],
     components: {
       securitySchemes: {
